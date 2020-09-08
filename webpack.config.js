@@ -4,6 +4,9 @@ module.exports = {
   output: {
     filename: "app.bundle.js",
   },
+  devServer: {
+    hot: true,
+  },
   module: {
     rules: [
       {
