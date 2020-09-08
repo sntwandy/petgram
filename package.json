@@ -1,0 +1,14 @@
+{
+  "name": "react-advanced",
+  "version": "1.0.0",
+  "description": "Petgram project from react advanced course at Platzi.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "petgram"
+  ],
+  "author": "Wandy Santana <sntwandy@gmail.com>",
+  "license": "MIT"
+}
