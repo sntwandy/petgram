@@ -2,13 +2,21 @@
   "name": "react-advanced",
   "version": "1.0.0",
   "description": "Petgram project from react advanced course at Platzi.com",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "petgram"
   ],
   "author": "Wandy Santana <sntwandy@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "html-webpack-plugin": "^4.4.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
 }
