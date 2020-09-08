@@ -1,7 +1,7 @@
 import React from "react";
 
 // Components
-import { Category } from "./components/Category";
+import { ListOfCategories } from "./components/ListOfCategories";
 
 // Global Styles
 import GlobalStyles from "./GlobalStyles";
@@ -10,7 +10,7 @@ export const App = () => {
   return (
     <>
       <GlobalStyles />
-      <Category />
+      <ListOfCategories />
     </>
   );
 };
