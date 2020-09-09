@@ -6,7 +6,7 @@ const DEFAULT_IMAGE = "https://i.imgur.com/dJa0Hpl.jpg";
 // Styles
 import { Anchor, Image } from "./styles";
 
-export const Category = ({ cover = DEFAULT_IMAGE, path, emoji = "?" }) => {
+export const Category = ({ cover, path, emoji = "?" }) => {
   return (
     <>
       <Anchor href={path}>
