@@ -1,5 +1,11 @@
 import styled from "styled-components";
 import { fadeIn } from "../../styles/animation";
+import { MdFavorite } from "react-icons/md";
+
+export const LikedIcon = styled(MdFavorite)`
+  color: #eb1a00;
+  ${fadeIn({ time: "0.5", type: "ease-in" })}
+`;
 
 export const Article = styled.article`
   min-height: 200px;
