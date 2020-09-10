@@ -2,24 +2,34 @@ import React, { useState, useEffect } from "react";
 
 // Components
 import { Category } from "../Category";
+import { Loading } from "../Loading";
 
 // Styles
 import { List, Item } from "./styles";
 
-export const ListOfCategories = () => {
+function useCategoriesData() {
   const [categories, setCategories] = useState([]);
-  const [showFixed, setShowFixed] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
+      setLoading(true);
       const data = await window.fetch(
         "https://petgram-server-edsf8xpy2.now.sh/categories"
       );
       const response = await data.json();
       setCategories(response);
+      setLoading(false);
     };
     getData();
   }, []);
+
+  return { categories, loading };
+}
+
+export const ListOfCategories = () => {
+  const { categories, loading } = useCategoriesData();
+  const [showFixed, setShowFixed] = useState(false);
 
   useEffect(() => {
     const onScroll = (e) => {
@@ -32,7 +42,7 @@ export const ListOfCategories = () => {
   }, [showFixed]);
 
   const renderList = (fixed) => (
-    <List className={fixed ? "fixed" : ""}>
+    <List fixed={fixed}>
       {categories.map((category) => (
         <Item key={category.id}>
           <Category {...category} />
@@ -43,7 +53,7 @@ export const ListOfCategories = () => {
 
   return (
     <>
-      {renderList()}
+      {loading ? <Loading /> : renderList()}
       {showFixed && renderList(true)}
     </>
   );
