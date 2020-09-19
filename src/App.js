@@ -2,7 +2,7 @@ import React from "react";
 
 // Components
 import { ListOfCategories } from "./components/ListOfCategories";
-import { ListOfPhotoCards } from "./components/ListOfPhotoCards";
+import { ListOfPhotoCards } from "./container/ListOfPhotoCards";
 import { Logo } from "./components/Logo";
 
 // Global Styles
@@ -14,7 +14,7 @@ export const App = () => {
       <GlobalStyles />
       <Logo />
       <ListOfCategories />
-      <ListOfPhotoCards />
+      <ListOfPhotoCards categoryId={2} />
     </>
   );
 };
