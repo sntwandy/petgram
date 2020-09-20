@@ -2,7 +2,7 @@ import React from "react";
 
 // Components
 import { ListOfCategories } from "./components/ListOfCategories";
-import { ListOfPhotoCards } from "./container/ListOfPhotoCards";
+import { ListOfPhotoCardsWithQuery } from "./container/ListOfPhotoCardsWithQuery";
 import { Logo } from "./components/Logo";
 import { PhotoCardWithQuery } from "./container/PhotoCardWithQuery";
 
@@ -24,7 +24,7 @@ export const App = () => {
       ) : (
         <>
           <ListOfCategories />
-          <ListOfPhotoCards categoryId={1} />
+          <ListOfPhotoCardsWithQuery categoryId={1} />
         </>
       )}
     </>
