@@ -1,8 +1,13 @@
 import React from "react";
-import { MdFavoriteBorder } from "react-icons/md";
 
 // Styles
-import { ImgWrapper, Img, Button, Article, LikedIcon } from "./styles";
+import { ImgWrapper, Img, Article } from "./styles";
+
+// Components
+import { FavButton } from "../FavButton";
+
+// Container
+import { ToggleLikeMutation } from "../../container/ToggleLikeMutation";
 
 // Hooks
 import { useLocalStorage } from "../../hooks/useLocalStorage";
@@ -17,8 +22,6 @@ export const PhotoCard = ({ id, likes = 0, src }) => {
   const key = `${id}.like`;
   const [liked, setLiked] = useLocalStorage(key, false);
 
-  const Icon = liked ? LikedIcon : MdFavoriteBorder;
-
   return (
     <Article ref={ref}>
       {show && (
@@ -28,10 +31,26 @@ export const PhotoCard = ({ id, likes = 0, src }) => {
               <Img src={src} alt="img detail" />
             </ImgWrapper>
           </a>
-          <Button onClick={() => setLiked(!liked)}>
-            <Icon size="32px" />
-            {likes}Likes!
-          </Button>
+          <ToggleLikeMutation>
+            {(toggleLike) => {
+              const handleFavClick = () => {
+                !liked &&
+                  toggleLike({
+                    variables: {
+                      input: { id },
+                    },
+                  });
+                setLiked(!liked);
+              };
+              return (
+                <FavButton
+                  liked={liked}
+                  likes={likes}
+                  onClick={handleFavClick}
+                />
+              );
+            }}
+          </ToggleLikeMutation>
         </>
       )}
     </Article>
