@@ -16,9 +16,7 @@ export const App = () => {
   return (
     <>
       <GlobalStyles />
-      <a href="/">
-        <Logo />
-      </a>
+      <Logo />
       {detailId ? (
         <PhotoCardWithQuery id={detailId} />
       ) : (

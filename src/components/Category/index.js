@@ -4,15 +4,15 @@ import React from "react";
 const DEFAULT_IMAGE = "https://i.imgur.com/dJa0Hpl.jpg";
 
 // Styles
-import { Anchor, Image } from "./styles";
+import { Link, Image } from "./styles";
 
 export const Category = ({ cover, path, emoji = "?" }) => {
   return (
     <>
-      <Anchor href={path}>
+      <Link to={path}>
         <Image src={cover} alt="History" />
         {emoji}
-      </Anchor>
+      </Link>
     </>
   );
 };
