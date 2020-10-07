@@ -1,3 +1,12 @@
 import React from "react";
+import Context from "../Context";
 
-export const NotRegisteredUser = () => <h1>Not Registered User</h1>;
+export const NotRegisteredUser = () => (
+  <Context.Consumer>
+    {({ activateAuth }) => (
+      <form onSubmit={activateAuth}>
+        <button>Login</button>
+      </form>
+    )}
+  </Context.Consumer>
+);

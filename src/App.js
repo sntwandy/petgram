@@ -1,5 +1,6 @@
 import React from "react";
 import { Router } from "@reach/router";
+import Context from "./Context";
 
 // Components
 import { Home } from "./pages/Home";
@@ -13,10 +14,6 @@ import { User } from "./pages/User";
 // Global Styles
 import GlobalStyles from "./styles/GlobalStyles";
 
-const UserLogged = ({ children }) => {
-  return children({ isAuth: false });
-};
-
 export const App = () => {
   return (
     <>
@@ -27,7 +24,7 @@ export const App = () => {
         <Home path="/pet/:id" />
         <Detail path="/detail/:detailId" />
       </Router>
-      <UserLogged>
+      <Context.Consumer>
         {({ isAuth }) => {
           if (isAuth) {
             return (
@@ -45,7 +42,7 @@ export const App = () => {
             );
           }
         }}
-      </UserLogged>
+      </Context.Consumer>
       <NavBar />
     </>
   );
