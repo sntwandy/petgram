@@ -1,15 +1,24 @@
 import React from "react";
 import { useInputValue } from "../../hooks/useInputValue";
 
-export const UserForm = ({ onSubmit }) => {
+// Styles
+import { Form, Input, Button, Title, ImgWrap } from "./styles";
+
+export const UserForm = ({ onSubmit, title }) => {
   const email = useInputValue("");
   const password = useInputValue("");
 
   return (
-    <form onSubmit={onSubmit}>
-      <input type="email" placeholder="example@domain.ext" {...email} />
-      <input type="password" placeholder="Your password" {...password} />
-      <button>Login</button>
-    </form>
+    <>
+      <ImgWrap>
+        <img src="https://i.imgur.com/Qqcvq1A.png" alt="Pets" />
+      </ImgWrap>
+      <Title>{title}</Title>
+      <Form onSubmit={onSubmit}>
+        <Input type="email" placeholder="example@domain.ext" {...email} />
+        <Input type="password" placeholder="Your password" {...password} />
+        <Button>{title}</Button>
+      </Form>
+    </>
   );
 };
