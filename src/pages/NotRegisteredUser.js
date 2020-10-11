@@ -11,13 +11,23 @@ export const NotRegisteredUser = () => (
       return (
         <>
           <RegisterMutation>
-            {(register) => {
+            {(register, { data, loading, error }) => {
               const onSubmit = ({ email, password }) => {
                 const input = { email, password };
                 const variables = { input };
                 register({ variables }).then(activateAuth);
               };
-              return <UserForm title="Sign Up" onSubmit={onSubmit} />;
+              const errorMsg =
+                error &&
+                "The user is already registered or there are other problem.";
+              return (
+                <UserForm
+                  disabled={loading}
+                  error={errorMsg}
+                  title="Sign Up"
+                  onSubmit={onSubmit}
+                />
+              );
             }}
           </RegisterMutation>
           {/* <UserForm title="Login" onSubmit={activateAuth} /> */}

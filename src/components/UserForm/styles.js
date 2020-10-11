@@ -11,6 +11,9 @@ export const Input = styled.input`
   border: 1px solid #ccc;
   margin-bottom: 8px;
   padding: 8px 4px;
+  &[disabled] {
+    opacity: 0.3;
+  }
 `;
 
 export const Button = styled.button`
@@ -21,6 +24,9 @@ export const Button = styled.button`
   color: #fff;
   background-color: #8d00ff;
   border-radius: 3px;
+  &[disabled] {
+    opacity: 0.3;
+  }
 `;
 
 export const Title = styled.h2`
@@ -35,5 +41,24 @@ export const ImgWrap = styled.div`
   margin: auto;
   & > img {
     width: 100%;
+  }
+`;
+
+export const Error = styled.span`
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  color: red;
+  margin-left: 5px;
+`;
+
+export const ErrorWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+  & > img {
+    width: 20px;
   }
 `;
