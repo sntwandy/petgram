@@ -10,29 +10,29 @@ export const NotRegisteredUser = () => {
   const { activateAuth } = useContext(Contex);
   return (
     <>
-      {/* <RegisterMutation>
-              {(register, { data, loading, error }) => {
-                const onSubmit = ({ email, password }) => {
-                  const input = { email, password };
-                  const variables = { input };
-                  register({ variables }).then(({ data }) => {
-                    const { singup } = data;
-                    activateAuth(singup);
-                  });
-                };
-                const errorMsg =
-                  error &&
-                  "The user is already registered or there are other problem.";
-                return (
-                  <UserForm
-                    disabled={loading}
-                    error={errorMsg}
-                    title="Sign Up"
-                    onSubmit={onSubmit}
-                  />
-                );
-              }}
-            </RegisterMutation> */}
+      <RegisterMutation>
+        {(register, { data, loading, error }) => {
+          const onSubmit = ({ email, password }) => {
+            const input = { email, password };
+            const variables = { input };
+            register({ variables }).then(({ data }) => {
+              const { singup } = data;
+              activateAuth(singup);
+            });
+          };
+          const errorMsg =
+            error &&
+            "The user is already registered or there are other problem.";
+          return (
+            <UserForm
+              disabled={loading}
+              error={errorMsg}
+              title="Sign Up"
+              onSubmit={onSubmit}
+            />
+          );
+        }}
+      </RegisterMutation>
       <LoginMutation>
         {(login, { data, loading, error }) => {
           const onSubmit = ({ email, password }) => {
