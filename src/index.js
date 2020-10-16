@@ -12,6 +12,7 @@ import Contex from "./Context";
 // Initializing our client
 const client = new ApolloClient({
   uri: "https://petgram-backend-one.now.sh/graphql",
+  // We send the HEADERS with the token authorization
   request: (operation) => {
     const token = window.sessionStorage.getItem("token");
     const authorization = token ? `Bearer ${token}` : "";

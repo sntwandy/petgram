@@ -32,10 +32,11 @@ export const PhotoCard = ({ id, liked, likes = 0, src }) => {
             {(toggleLike) => {
               const handleFavClick = () => {
                 toggleLike({
-                    variables: {
-                      input: { id },
-                  }})
-                },
+                  variables: {
+                    input: { id },
+                  },
+                });
+              };
               return (
                 <FavButton
                   liked={liked}
