@@ -1,16 +1,9 @@
 import React from "react";
 import { useInputValue } from "../../hooks/useInputValue";
+import { SubmitButton } from "../SubmitButton";
 
 // Styles
-import {
-  Form,
-  Input,
-  Button,
-  Title,
-  ImgWrap,
-  Error,
-  ErrorWrap,
-} from "./styles";
+import { Form, Input, Title, ImgWrap, Error, ErrorWrap } from "./styles";
 
 export const UserForm = ({ onSubmit, title, error, disabled }) => {
   const email = useInputValue("");
@@ -40,7 +33,7 @@ export const UserForm = ({ onSubmit, title, error, disabled }) => {
           placeholder="Your password"
           {...password}
         />
-        <Button disabled={disabled}>{title}</Button>
+        <SubmitButton disabled={disabled}>{title}</SubmitButton>
         {error && (
           <ErrorWrap>
             <img src="https://i.imgur.com/gmDhrEA.png" alt="Error" />
