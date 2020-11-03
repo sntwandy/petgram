@@ -1,6 +1,6 @@
-import React from "react";
-import { Router } from "@reach/router";
-import Context from "./Context";
+import React, { useContext } from "react";
+import { Redirect, Router } from "@reach/router";
+import { Contex } from "./Context";
 
 // Components
 import { Home } from "./pages/Home";
@@ -10,11 +10,13 @@ import { NavBar } from "./components/NavBar";
 import { Favs } from "./pages/Favs";
 import { NotRegisteredUser } from "./pages/NotRegisteredUser";
 import { User } from "./pages/User";
+import { NotFound } from "./pages/NotFound";
 
 // Global Styles
 import GlobalStyles from "./styles/GlobalStyles";
 
 export const App = () => {
+  const { isAuth } = useContext(Contex);
   return (
     <>
       <GlobalStyles />
@@ -23,26 +25,14 @@ export const App = () => {
         <Home path="/" />
         <Home path="/pet/:id" />
         <Detail path="/detail/:detailId" />
+        {!isAuth && <NotRegisteredUser path="/login" />}
+        {!isAuth && <Redirect noThrow from="/favs" to="/login" />}
+        {!isAuth && <Redirect noThrow from="/user" to="/login" />}
+        {isAuth && <Redirect noThrow from="/login" to="/" />}
+        <Favs path="/favs" />
+        <User path="/user" />
+        <NotFound default />
       </Router>
-      <Context.Consumer>
-        {({ isAuth }) => {
-          if (isAuth) {
-            return (
-              <Router>
-                <Favs path="/favs" />
-                <User path="/user" />
-              </Router>
-            );
-          } else {
-            return (
-              <Router>
-                <NotRegisteredUser path="/user" />
-                <NotRegisteredUser path="/favs" />
-              </Router>
-            );
-          }
-        }}
-      </Context.Consumer>
       <NavBar />
     </>
   );
