@@ -1,4 +1,4 @@
-import React, { useContext, Suspense } from "react";
+import React, { useContext, Suspense, lazy } from "react";
 import { Redirect, Router } from "@reach/router";
 import { Contex } from "./Context";
 
@@ -12,7 +12,7 @@ import { NotRegisteredUser } from "./pages/NotRegisteredUser";
 import { User } from "./pages/User";
 import { NotFound } from "./pages/NotFound";
 
-const Favs = React.lazy(() => import("./pages/Favs"));
+const Favs = lazy(() => import("./pages/Favs"));
 
 // Global Styles
 import GlobalStyles from "./styles/GlobalStyles";
