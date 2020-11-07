@@ -3,16 +3,21 @@ import { Redirect, Router } from "@reach/router";
 import { Contex } from "./Context";
 
 // Components
-import { Home } from "./pages/Home";
-import { Detail } from "./pages/Detail";
+// import { Home } from "./pages/Home";
+// import { Detail } from "./pages/Detail";
 import { Logo } from "./components/Logo";
 import { NavBar } from "./components/NavBar";
 // import { Favs } from "./pages/Favs";
 import { NotRegisteredUser } from "./pages/NotRegisteredUser";
-import { User } from "./pages/User";
-import { NotFound } from "./pages/NotFound";
+// import { User } from "./pages/User";
+// import { NotFound } from "./pages/NotFound";
 
+// Implement react lazy
+const Home = lazy(() => import("./pages/Home"));
 const Favs = lazy(() => import("./pages/Favs"));
+const Detail = lazy(() => import("./pages/Detail"));
+const User = lazy(() => import("./pages/User"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Global Styles
 import GlobalStyles from "./styles/GlobalStyles";
