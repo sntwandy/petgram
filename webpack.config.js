@@ -66,7 +66,7 @@ module.exports = {
           },
         },
         {
-          urlPattern: new RegExp("https://petgram.vercel.app"),
+          urlPattern: new RegExp("https://petgram.sntwandy.vercel.app/"),
           handler: "NetworkFirst",
           options: {
             cacheName: "api",
